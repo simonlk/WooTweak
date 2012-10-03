@@ -1,0 +1,33 @@
+.product_description {
+    float: right;
+    width: 48%;
+    margin-top: 10px;
+}
+#wt2_variation_meta {
+    display: none;
+}
+
+/*sidebar button fix*/
+a.button, button.button, input.button, #review_form #submit {
+    display: inline-block;
+}
+
+/*"from" new line break fix*/
+ul.products li .price .from {
+    display: inline;
+}
+
+.page-title {
+    font-size: inherit;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    line-height: 2.6em;
+    margin: 0;
+    text-transform: none;
+}
+p {
+    margin-bottom: 10px;
+}
+form.cart {
+    margin-bottom: 10px;
+}
