@@ -804,27 +804,27 @@ class WooTweak2 {
 				
 				    $variation_data = get_post_custom( $variation->ID );
 				    ?>
-				    <div class="woocommerce_variation wc-metabox closed">
-					<h3>
+				    <p class="form-field options_group">
 					    <input type="hidden" name="variable_post_id[<?php echo $loop; ?>]" value="<?php echo esc_attr( $variation->ID ); ?>" />
 					    <input type="hidden" class="variation_menu_order" name="variation_menu_order[<?php echo $loop; ?>]" value="<?php echo $loop; ?>" />
 					    
-					    <label><?php _e('Description', 'woocommerce') ?></label>
-					    <textarea cols="70" rows="10" class="wt2_variable_description" name="variable_description[<?php echo $loop; ?>]" id=""><?php if (isset($variation_data['_description'][0])) echo $variation_data['_description'][0]; ?></textarea>
+					    <!--<label><?php _e('Description', 'woocommerce') ?></label>-->
+					    <label>
+					    	#<?php echo $variation->ID; ?> &mdash;
+						    <?php
+							    $variation_selected_value = get_post_meta( $variation->ID, 'attribute_' . sanitize_title($attribute['name']), true );
+							    echo $variation_selected_value;
+						    ?><br />
+						    <?php echo '<strong>SKU:</strong> ' . $variation_data['_sku'][0]; ?>
+						</label>
+					    <textarea cols="70" rows="10" placeholder="Custom description. Leave blank to show product title." class="wt2_variable_description short" name="variable_description[<?php echo $loop; ?>]" id=""><?php if (isset($variation_data['_description'][0])) echo $variation_data['_description'][0]; ?></textarea>
 					    <!--<input type="text" size="5" name="variable_description[<?php echo $loop; ?>]" value="<?php if (isset($variation_data['_description'][0])) echo $variation_data['_description'][0]; ?>" />-->
-					    
-					    <strong>#<?php echo $variation->ID; ?> &mdash; </strong>
-					    <?php
-						    $variation_selected_value = get_post_meta( $variation->ID, 'attribute_' . sanitize_title($attribute['name']), true );
-						    echo $variation_selected_value;
-					    ?>
-					</h3>
-				    </div>				
+				    </p>				
 				    <?php
 				    $loop++; endforeach;
-	    ?>
-	    </div>
-	    <?php
+	?>
+	</div>
+	<?php
 	}
     }
     
